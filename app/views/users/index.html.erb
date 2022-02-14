@@ -1,21 +1,8 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <!--部分テンプレート-->
-      <h2 class="mt-3">New book</h2>
-      <%= form_with model: @book, local: true do |f| %>
-        <div class="form-group">
-          <label for="book_title">Title</label><br>
-          <%= f.text_field :title, class: 'form-control book_title', id: 'book_title' %>
-        </div>
-        <div class="form-group">
-          <label for="book_opinion">Opinion</label><br>
-          <%= f.text_area :body, class: 'form-control book_body', id: 'book_body' %>
-        </div>
-        <div class="form-group">
-          <%= f.submit 'Create Book', class: 'btn btn-success' %>
-        </div>
-      <% end %>
+      <!--userinfo部分テンプレート-->
+      <%= render 'books/new_book', book: @new_book %>
     </div>
 
     <div class="col-md-3 offset-md-1">
@@ -32,7 +19,7 @@
           <% @users.each do |user| %>
             <tr>
               <td>
-                <%= image_tag user.get_profile_image(100, 100) %>
+                <%= image_tag user.get_profile_image(50,50) %>
               </td>
               <td>
                 <%= user.name %>

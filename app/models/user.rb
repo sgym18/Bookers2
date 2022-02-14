@@ -6,7 +6,11 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
   has_one_attached :profile_image
-
+  
+  validates :name, presence: true
+  validates :profile_image, presence: true
+  validates :introduction, presence: true
+  
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image-72379a4da21cb04a58337cf92d85bc39f8d534cbc78254c2085acaca82236bfa.jpg')

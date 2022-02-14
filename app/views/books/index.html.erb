@@ -21,21 +21,7 @@
           <i class="fa-solid fa-user-gear"></i>
         <% end %>
       </div>
-
-      <h2 class="mt-3">New book</h2>
-      <%= form_with model: @book, local: true do |f| %>
-        <div class="form-group">
-          <label for="book_title">Title</label><br>
-          <%= f.text_field :title, class: 'form-control book_title', id: 'book_title' %>
-        </div>
-        <div class="form-group">
-          <label for="book_opinion">Opinion</label><br>
-          <%= f.text_area :body, class: 'form-control book_body', id: 'book_body' %>
-        </div>
-        <div class="form-group">
-          <%= f.submit 'Create Book', class: 'btn btn-success' %>
-        </div>
-      <% end %>
+      <%= render 'new_book', book: @new_book %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -54,7 +40,7 @@
             <tr>
               <td>
                 <%= link_to user_path(book.user_id) do %>
-                   <%= image_tag book.user.get_profile_image(100,100) %>
+                   <%= image_tag book.user.get_profile_image(40,40) %>
                 <% end %>
               </td>
               <td>
