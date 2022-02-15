@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'user_info', book: @book %>
+      <%= render 'user_info', user: @user%>
 
       <%= render 'new_book', book: @new_book %>
     </div>
@@ -12,7 +12,7 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to user_path(@book.id) do %>
+              <%= link_to user_path(@book.user) do %>
                 <%= image_tag @book.user.get_profile_image(100,100), class: 'attachment user profile_image fallback' %><br>
                 <%= @book.user.name %>
               <% end %>

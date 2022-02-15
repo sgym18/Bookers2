@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <!--userinfo部分テンプレート-->
+      <%= render 'books/user_info', user: @user %>
       <%= render 'books/new_book', book: @new_book %>
     </div>
 
@@ -18,12 +18,12 @@
           <% @user.books.each do |book| %>
             <tr>
               <td>
-                <%= link_to user_path(book.user_id) do %>
+                <%= link_to user_path(book.user) do %>
                   <%= image_tag book.user.get_profile_image(50,50) %>
                 <% end %>
               </td>
               <td>
-                <%= link_to book_path(book.id) do %>
+                <%= link_to book_path(book) do %>
                   <%= book.title %>
                 <% end %>
               </td>

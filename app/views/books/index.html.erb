@@ -1,4 +1,14 @@
 <div class="container px-5 px-sm-0">
+  <div id="error_explanation" class="text-danger">
+    <% if @new_book.errors.any? %>
+      <h3><%= @new_book.errors.count %> error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @new_book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
@@ -18,7 +28,7 @@
       </table>
       <div class="row">
         <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fa-solid fa-user-gear"></i>
+          <i class="fas fa-user-cog"></i>
         <% end %>
       </div>
       <%= render 'new_book', book: @new_book %>
